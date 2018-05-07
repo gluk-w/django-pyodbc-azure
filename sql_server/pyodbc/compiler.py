@@ -241,7 +241,7 @@ class SQLCompiler(compiler.SQLCompiler):
 
             # SQL Server requires the backend-specific emulation (2008 or earlier)
             # or an offset clause (2012 or newer) for offsetting
-            if do_offset:
+            if do_offset or (combinator and high_mark):
                 if do_offset_emulation:
                     # Construct the final SQL clause, using the initial select SQL
                     # obtained above.
